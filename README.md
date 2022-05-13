@@ -1,5 +1,5 @@
-# Parser LL1
-Analizador sintactico escrito en Java basado en el parser LL1
+# Práctica 5
+Análisis semántico, manejo de errores y generación del código
 
 ## Compiladores, Trimestre: 22I
 - Hernández Zarzúa Carlos Jerack
