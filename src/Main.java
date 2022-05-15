@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -55,7 +56,7 @@ public class Main {
 
         System.out.println("\nProducciones enumeradas:\nNo.|LHS -> RHS");
         System.out.println(gramatica.toString());
-
+        /**/
         String cadenaAnalizar="num * ( num + num )";
         System.out.println("\nLa cadena que se analizara es: "+cadenaAnalizar);
 
@@ -64,6 +65,20 @@ public class Main {
 
         for (String i:cadenaElementos)
             System.out.println(i);
+        /**/
+
+        /**/
+        Scanner teclado=new Scanner(System.in);
+        cadenaAnalizar=teclado.nextLine();//5*(6.67+22)
+        System.out.println("La cadena para lex: "+cadenaAnalizar);
+        Lexico lex=new Lexico();
+        ArrayList<Token> tokens=lex.tablaSimbolos(cadenaAnalizar);
+        for(int i=0;i< tokens.size();i++){
+            System.out.println("Token "+i+" "+tokens.get(i));
+        }
+
+
+        /**/
 
         ArrayList<Integer>secuenciaNumeros=parser.analizarCadena(cadenaElementos);
         parser.mostrarSecuanciaProducciones();
