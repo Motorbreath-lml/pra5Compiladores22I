@@ -1,13 +1,11 @@
 public class Token {
     private String simbolo;
-    private int valorInt;
-    private float valorfloat;
+    private float valor;
     private String tipo;
 
     public Token() {
         this.simbolo="";
-        this.valorfloat=-1;
-        this.valorInt=-1;
+        this.valor=-1;
         this.tipo="";
     }
 
@@ -15,10 +13,17 @@ public class Token {
     public String toString() {
         return "Token{" +
                 "simbolo='" + simbolo + '\'' +
-                ", valorInt=" + valorInt +
-                ", valorfloat=" + valorfloat +
                 ", tipo='" + tipo + '\'' +
+                ", valor=" + valor +
                 '}';
+    }
+
+    public float getValor() {
+        return valor;
+    }
+
+    public void setValor(float valor) {
+        this.valor = valor;
     }
 
     public String getSimbolo() {
@@ -27,22 +32,6 @@ public class Token {
 
     public void setSimbolo(String simbolo) {
         this.simbolo = simbolo;
-    }
-
-    public int getValorInt() {
-        return valorInt;
-    }
-
-    public void setValorInt(int valorInt) {
-        this.valorInt = valorInt;
-    }
-
-    public float getValorfloat() {
-        return valorfloat;
-    }
-
-    public void setValorfloat(float valorfloat) {
-        this.valorfloat = valorfloat;
     }
 
     public String getTipo() {

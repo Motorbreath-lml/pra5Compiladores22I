@@ -1,5 +1,6 @@
 # Práctica 5
 Análisis semántico, manejo de errores y generación del código
+* La base de esta practica, ![img.png](img.png)
 
 ## Compiladores, Trimestre: 22I
 - Hernández Zarzúa Carlos Jerack

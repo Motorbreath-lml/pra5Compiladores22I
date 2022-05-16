@@ -3,6 +3,29 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        /*
+        * Se analiza la cadena suminstrada para generar tokens*/
+        Scanner teclado=new Scanner(System.in);
+        System.out.println("Escriba la cadena a analizar:");
+        String cadenaAnalizar=teclado.nextLine();//5*(6.67+22)
+        System.out.println("La cadena a analizar es: "+cadenaAnalizar);
+        Lexico lex=new Lexico();
+        ArrayList<Token> tokens=lex.tablaSimbolos(cadenaAnalizar);
+        for(int i=0;i< tokens.size();i++){
+            System.out.println("Token "+i+" "+tokens.get(i));
+        }
+        System.out.println();
+        /**/
+
+        String []cadenaElementos=new String[tokens.size()];
+        System.out.println("Los elementos de la cadena:");
+        for (int i=0;i< tokens.size();i++){
+            cadenaElementos[i]=tokens.get(i).getSimbolo();
+            System.out.println("Elemento "+i+", "+cadenaElementos[i]);
+        }
+        System.out.println();
+
+
         //La gramatica esta formada por lista de producciones
         //Conjunto de terminales: terminales
         //Conjunto de no terminales: noTerminales
@@ -36,6 +59,7 @@ public class Main {
         System.out.println("Los simbolos NO terminales:\n"+gramatica.getNoTerminales());
         System.out.println("Los simbolos terminales:\n"+gramatica.getTerminales());
 
+        //Comienza calculo de First y Follow de los no terminales de la gramatica
         gramatica.calcularFirstFollow();
 
         System.out.println("\nFirst de la gramatica");
@@ -47,6 +71,7 @@ public class Main {
                 gramatica.getNoTerminales(),gramatica.getProduccciones(),
                 gramatica.getFirst(),gramatica.getFollow());
 
+        //Comienza llenado de la tabla de parseo
         System.out.println("\nLa tabla parser antes de ser llenada");
         parser.mostrarTablaParser();
 
@@ -56,30 +81,8 @@ public class Main {
 
         System.out.println("\nProducciones enumeradas:\nNo.|LHS -> RHS");
         System.out.println(gramatica.toString());
-        /**/
-        String cadenaAnalizar="num * ( num + num )";
-        System.out.println("\nLa cadena que se analizara es: "+cadenaAnalizar);
 
-        String []cadenaElementos=cadenaAnalizar.split(" ");
-        System.out.println("Numero elementos:"+cadenaElementos.length);
-
-        for (String i:cadenaElementos)
-            System.out.println(i);
-        /**/
-
-        /**/
-        Scanner teclado=new Scanner(System.in);
-        cadenaAnalizar=teclado.nextLine();//5*(6.67+22)
-        System.out.println("La cadena para lex: "+cadenaAnalizar);
-        Lexico lex=new Lexico();
-        ArrayList<Token> tokens=lex.tablaSimbolos(cadenaAnalizar);
-        for(int i=0;i< tokens.size();i++){
-            System.out.println("Token "+i+" "+tokens.get(i));
-        }
-
-
-        /**/
-
+        //Comienza el parser
         ArrayList<Integer>secuenciaNumeros=parser.analizarCadena(cadenaElementos);
         parser.mostrarSecuanciaProducciones();
 

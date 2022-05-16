@@ -27,12 +27,11 @@ public class Lexico {
 
                 Token numero = new Token();
                 numero.setSimbolo("num");
+                numero.setValor(Float.parseFloat(subcadena));
                 //Identificar si el numero es flotante
                 if (subcadena.contains(".")) {
-                    numero.setValorfloat(Float.parseFloat(subcadena));
                     numero.setTipo("float");
                 } else {
-                    numero.setValorInt(Integer.parseInt(subcadena));
                     numero.setTipo("int");
                 }
                 tablaSimbolos.add(numero);
@@ -54,6 +53,16 @@ public class Lexico {
                     case '\n':
                     case '\t':
                     case '.':
+                    case '1':
+                    case '2':
+                    case '3':
+                    case '4':
+                    case '5':
+                    case '6':
+                    case '7':
+                    case '8':
+                    case '9':
+                    case '0':
                         /*ignorarlos*/
                         break;
                     default:
@@ -76,7 +85,6 @@ public class Lexico {
         while(matcher.find()){
             indices.add(matcher.start());
             indices.add(matcher.end());
-            System.out.println("Elmatch: "+matcher.group()+" star:"+matcher.start()+" end:"+matcher.end());
         }
         return indices;
     }
