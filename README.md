@@ -1,6 +1,6 @@
 # Práctica 5
 Análisis semántico, manejo de errores y generación del código
-* La base de esta practica, ![img.png](img.png)
+* La base de esta practica, https://github.com/Motorbreath-lml/parserLL1
 
 ## Compiladores, Trimestre: 22I
 - Hernández Zarzúa Carlos Jerack
